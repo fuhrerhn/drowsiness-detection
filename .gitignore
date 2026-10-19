@@ -1,0 +1,25 @@
+
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env
+
+# VS Code
+.vscode/
+
+# Dataset
+Dataset_or_Sample_Input/train/
+Dataset_or_Sample_Input/val/
+Dataset_or_Sample_Input/test/
+
+# Temporary files
+*.log
+*.zip
+.DS_Store
+Thumbs.db

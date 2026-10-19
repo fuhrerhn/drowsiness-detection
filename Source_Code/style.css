@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+
+/* Warna utama, dipakai konsisten untuk semua komponen Gradio. */
+:root {
+    color-scheme: light;
+    --dg-page: #f5f8fc;
+    --dg-card: #ffffff;
+    --dg-line: #e5eaf2;
+    --dg-ink: #14223b;
+    --dg-muted: #65758f;
+    --dg-blue: #2269f3;
+    --dg-green: #078c4a;
+}
+
+/* FIX: jangan biarkan parent Gradio menggunakan lebar maks. 1100px / latar gelap. */
+/* Berlaku juga pada host web component Gradio. */
+:host {
+    display: block !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    background: #f5f8fc !important;
+    color-scheme: light !important;
+}
+
+html, body, gradio-app, gradio-app > .gradio-container {
+    width: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    background: var(--dg-page) !important;
+}
+
+body, .gradio-container, .gradio-container * {
+    font-family: "DM Sans", "Segoe UI", Arial, sans-serif;
+}
+
+.gradio-container {
+    --body-background-fill: #f5f8fc;
+    --background-fill-primary: #fff;
+    --background-fill-secondary: #f5f8fc;
+    --body-text-color: #14223b;
+    --block-background-fill: #ffffff;
+    --input-background-fill: #ffffff;
+    color-scheme: light !important;
+    background: var(--dg-page) !important;
+    color: var(--dg-ink) !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 100vh !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    padding: clamp(20px, 2.6vw, 40px) clamp(18px, 3.5vw, 62px) !important;
+}
+
+/* Gradio juga membungkus aplikasi dengan .main/.contain. */
+.gradio-container > .main,
+.gradio-container .contain,
+.gradio-container .main,
+.gradio-container > .wrap {
+    max-width: none !important;
+    width: 100% !important;
+    background: transparent !important;
+}
+
+.gradio-container #dashboard-layout,
+.gradio-container #left-column,
+.gradio-container #right-column {
+    min-width: 0;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0 24px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--dg-line);
+    gap: 14px;
+}
+.brand { display: flex; align-items: center; gap: 13px; }
+.brand-logo { display: flex; align-items: center; justify-content: center; width: 44px; color: var(--dg-blue); }
+.brand-logo svg { width: 41px; height: 41px; fill: none; stroke: currentColor; stroke-width: 2; }
+.brand-name { color: var(--dg-ink); font-size: 26px; font-weight: 700; letter-spacing: -.7px; line-height: 1.15; }
+.brand-name span { color: var(--dg-blue); }
+.brand-description { font-size: 13px; color: var(--dg-muted); margin-top: 5px; }
+.header-state { display: flex; align-items: flex-start; gap: 10px; }
+.online-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; background: #22bc67; flex-shrink: 0; }
+.header-state strong { display: block; font-size: 13px; color: #10713f; }
+.header-state small { display: block; font-size: 12px; margin-top: 2px; color: var(--dg-muted); }
+
+/* Ruang kiri-kanan otomatis penuh, bukan container berukuran tetap. */
+#dashboard-layout { width: 100% !important; max-width: none !important; gap: clamp(16px, 1.6vw, 25px) !important; align-items: start !important; }
+#left-column { flex: 1.75 1 0 !important; max-width: none !important; gap: 15px !important; }
+#right-column { flex: 1 1 0 !important; max-width: none !important; gap: 15px !important; }
+
+#webcam-card, #eye-preview-card, #info-bar, .metric-card {
+    background: var(--dg-card) !important;
+    border: 1px solid var(--dg-line) !important;
+    border-radius: 14px !important;
+    box-shadow: 0 7px 24px rgba(25, 45, 80, .055) !important;
+}
+#webcam-card { padding: 18px !important; gap: 13px !important; }
+.webcam-title { display:flex; justify-content:space-between; align-items:center; gap: 16px; min-height: 34px; }
+.section-title { font-size: 16px; font-weight: 700; color: var(--dg-ink); }
+.webcam-badge { padding: 7px 12px; border-radius: 50px; background: #e5f8ed; color: #087c43; font-weight: 600; font-size: 12px; white-space: nowrap; }
+#live-webcam { width: 100% !important; border: none !important; border-radius: 10px !important; overflow: hidden !important; background: #eef2f7 !important; padding: 0 !important; }
+#live-webcam video, #live-webcam img { width: 100% !important; height: 100% !important; object-fit: contain !important; }
+
+#monitoring-status { background: transparent !important; border: 0 !important; padding: 0 !important; }
+.status-stack { display: flex; flex-direction: column; gap: 14px; }
+.metric-card { display: flex; align-items: center; gap: 18px; padding: 18px 20px; min-height: 108px; color: var(--dg-ink) !important; }
+.metric-content { flex: 1; min-width: 0; }
+.metric-icon { width: 60px; height: 60px; flex: 0 0 60px; display: flex; align-items: center; justify-content: center; border-radius: 14px; }
+.metric-icon svg { width: 28px; height: 28px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.green-icon { background: #e3f8ec; color: #0b9552; }
+.blue-icon { background: #eaf1ff; color: #2269f3; }
+.gray-icon { background: #edf1f6; color: #22324c; }
+.metric-label { color: var(--dg-ink) !important; font-size: 13px; line-height: 1.2; font-weight: 700; }
+.metric-value { display: block; color: var(--dg-ink) !important; font-size: clamp(17px, 1.6vw, 23px); font-weight: 700; letter-spacing: -.45px; line-height: 1.2; margin-top: 6px; }
+.metric-card p { color: var(--dg-muted) !important; font-size: 12.5px; line-height: 1.45; margin: 4px 0 0; }
+.metric-card .score-detail { display: block; color: #73849e !important; font-size: 11px; margin-top: 5px; }
+.system-card { background: #f5fff9 !important; border-color: #d5f0e0 !important; }
+.system-card .green-text { color: #068347 !important; }
+.eye-card.is-normal .eye-text { color: #2269f3 !important; }
+.eye-card.is-warning .eye-text { color: #c2821d !important; }
+.eye-card.is-danger .eye-text { color: #d33342 !important; }
+.eye-card.is-idle .eye-text { color: #77869d !important; }
+.alarm-card.is-danger { background: #fff3f5 !important; border-color: #ffd6dd !important; }
+.alarm-card.is-danger .metric-value { color: #d33342 !important; }
+.duration-value { margin: 5px 0 10px; font-size: clamp(26px, 2vw, 32px); line-height: 1.1; font-weight: 700; color: var(--dg-ink) !important; }
+.duration-value span { font-size: 15px; font-weight: 600; color: #71819a !important; }
+.progress-track { background: #e5ebf3; border-radius: 99px; overflow: hidden; width: 100%; height: 9px; }
+.progress-fill { width: 0; height: 100%; border-radius: 99px; background: var(--dg-blue); transition: width .15s linear; }
+
+#eye-preview-card { padding: 17px 19px !important; gap: 10px !important; }
+.preview-heading { display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+.preview-heading strong { color: var(--dg-ink) !important; font-size: 14px; }
+.preview-heading span { color: var(--dg-muted) !important; font-size: 11px; }
+#eye-crops { padding: 0 !important; border: 0 !important; background: #edf2f7 !important; border-radius: 8px !important; overflow: hidden; }
+#eye-crops img { object-fit: contain !important; }
+
+#info-bar { align-items: center !important; gap: 12px !important; padding: 15px 18px !important; }
+#info-bar > .html-container { flex: 1 1 auto !important; min-width: 260px; }
+.info-content { display:flex; align-items:center; gap: 13px; }
+.info-symbol { display:flex; align-items:center; justify-content:center; width:27px; height:27px; flex: 0 0 27px; border-radius:50%; background:var(--dg-blue); color:white !important; font-size:17px; font-weight:700; }
+.info-content strong { font-size: 13px; font-weight: 700; color: var(--dg-ink) !important; }
+.info-content p { margin: 4px 0 0; color: var(--dg-muted) !important; font-size: 11.5px; line-height: 1.35; }
+#reset-button { min-width: 185px !important; max-width: 245px !important; flex: 0 0 auto !important; min-height: 46px !important; border: 0 !important; border-radius: 9px !important; background: var(--dg-blue) !important; color: white !important; font-weight: 700 !important; font-size: 13px !important; }
+#reset-button:hover { background: #1358d7 !important; }
+#audio-settings { background: transparent !important; border: none !important; margin-top: 4px !important; }
+#audio-settings > button { color: var(--dg-muted) !important; font-size: 11px !important; }
+
+@media (min-width: 1700px) {
+    .gradio-container { padding-left: max(62px, calc((100vw - 1850px) / 2)) !important; padding-right: max(62px, calc((100vw - 1850px) / 2)) !important; }
+}
+@media (max-width: 950px) {
+    .gradio-container { padding: 18px !important; }
+    #dashboard-layout { flex-direction: column !important; }
+    #left-column, #right-column { width: 100% !important; flex: 1 1 auto !important; }
+    #info-bar { flex-wrap: wrap !important; }
+    #reset-button { max-width: none !important; width: 100% !important; }
+}
+@media (max-width: 520px) {
+    .brand-name { font-size: 21px; }
+    .brand-description, .header-state small { font-size: 11px; }
+    .metric-card { padding: 15px !important; }
+    .metric-icon { width: 48px; height: 48px; flex-basis: 48px; }
+    #live-webcam { max-height: 385px; }
+}
+
+
+/* Drowsiness Warning */
+
+.eye-card.is-danger {
+    background: #fff5f5 !important;
+    border-color: #fecaca !important;
+}
+
+.eye-card.is-danger .eye-text {
+    color: #dc2626 !important;
+}
+
+.eye-card.is-danger .metric-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* Alarm Active */
+
+.alarm-card.is-danger {
+    background: #fff1f2 !important;
+    border-color: #fca5a5 !important;
+}
+
+.alarm-card.is-danger .metric-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* Timer berubah merah ketika alarm aktif */
+
+.status-stack:has(.eye-card.is-danger) .progress-fill {
+    background: #dc2626 !important;
+}
+
+/* Border webcam berubah saat warning */
+
+.gradio-container:has(.eye-card.is-danger) #webcam-card {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.12);
+}

@@ -1,0 +1,8 @@
+# Untuk aplikasi Gradio. Gunakan environment dl-gpu yang sudah mendukung RTX 5060.
+gradio==6.5.1
+mediapipe==0.10.21
+opencv-python
+numpy
+Pillow
+torch
+torchvision
