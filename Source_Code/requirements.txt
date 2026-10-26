@@ -1,8 +1,25 @@
-# Untuk aplikasi Gradio. Gunakan environment dl-gpu yang sudah mendukung RTX 5060.
+# DrowseGuard - Dependencies
+# Group 01 | Computer Vision Project
+
+# Web Interface
 gradio==6.5.1
+
+# Computer Vision
 mediapipe==0.10.21
 opencv-python
 numpy
 Pillow
+
+# Deep Learning
 torch
 torchvision
+
+# Audio Alarm (Desktop)
+pygame
+
+# Model Evaluation & Visualization
+matplotlib
+scikit-learn
+
+# Jupyter Notebook
+ipykernel
